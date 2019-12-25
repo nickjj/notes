@@ -133,6 +133,7 @@ monthly files by default instead of daily files you can just change `date
 I'm a self taught developer and have been freelancing for the last ~20 years.
 You can read about everything I've learned along the way on my site at
 [https://nickjanetakis.com](https://nickjanetakis.com/). There's hundreds of
-[blog posts](https://nickjanetakis.com/blog/), [video
-courses](https://nickjanetakis.com/courses/) and I also have a
-[podcast](https://runninginproduction.com).
+[blog posts](https://nickjanetakis.com/blog/) and a couple of [video
+courses](https://nickjanetakis.com/courses/) on web development and deployment
+topics. I also have a [podcast](https://runninginproduction.com) where I talk
+to folks about running web apps in production.
