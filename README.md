@@ -55,10 +55,9 @@ let's first go over installing it before we get to that.
 Depending on how you work, it's probably not ideal for grouping up a bunch of
 extended thoughts about a specific topic.
 
-For example, if you were in the process of planning to write a book and you
-spent 3 months gathering info about what you're writing about then you would
-end up with a bunch of isolated date formatted files that was mixed in with
-everything else.
+For example, if you were planning to write a book and you spent 3 months
+gathering info about what you're writing about then you would end up with a
+bunch of isolated date formatted files that was mixed in with everything else.
 
 In those cases, I recommend you make a new script called `book` which basically
 does what this script does except it always dumps everything to 1 specific file
@@ -68,7 +67,7 @@ of your choosing which isn't dated. That's what I do to help plan my
 ## Installation
 
 Copy / paste the line below, or if you don't like this pattern of installing
-scripts you can break it apart and run things manually.
+scripts then feel free to run things manually.
 
 ### 1 liner to get `notes` downloaded to `/usr/local/bin`:
 
