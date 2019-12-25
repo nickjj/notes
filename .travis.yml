@@ -1,0 +1,23 @@
+---
+
+sudo: "required"
+dist: "bionic"
+
+before_install:
+  - "sudo apt-get update && sudo apt-get install -y shellcheck"
+  - "shellcheck notes"
+
+install:
+  - "chmod +x notes"
+
+before_script:
+  - 'TODAY="$(date +%Y-%m-%d)"'
+  - "export NOTES_DIRECTORY=/tmp"
+  - 'NOTES_FILE_PATH="${NOTES_DIRECTORY}/${TODAY}".txt'
+
+script:
+  - "./notes hello"
+  - 'grep hello "${NOTES_FILE_PATH}"'
+  - "echo hi | ./notes"
+  - 'grep hi "${NOTES_FILE_PATH}"'
+  - 'grep hello "${NOTES_FILE_PATH}"'
