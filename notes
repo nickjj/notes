@@ -1,5 +1,6 @@
 #!/bin/sh
 # Create a dated text file at a specific location and append text to it.
+# Each note has a time stamp
 #
 # Usage:
 #   $ notes something you want to jot down (appends that text to the file)
@@ -11,11 +12,17 @@
 
 set -e
 
-readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-/d/notes}"
-readonly NOTES_EDITOR="${EDITOR}"
+readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-$HOME/notes}"
+
+[ -d $NOTES_DIRECTORY ] || mkdir $NOTES_DIRECTORY
+
+readonly NOTES_EDITOR=${EDITOR:-"vim"}
 
 readonly NOTES_FILE="$(date +%Y-%m-%d).txt"
 readonly NOTES_PATH="${NOTES_DIRECTORY}/${NOTES_FILE}"
+
+[ -z "$NO_NOTES_TIMESTAMP" ] &&
+    printf "%s\n" "$(date +%H:%M)" >> "${NOTES_PATH}"
 
 if [ ${#} -eq 0 ]; then
     if [ -p "/dev/stdin" ]; then

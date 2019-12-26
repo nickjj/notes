@@ -85,18 +85,35 @@ any issues.
 ### Configuration
 
 The first thing you'll want to do is configure where you want your notes to be
-created. This directory needs to already exist.
-
+created.
 You can do this in 1 of 2 ways:
 
 1. Put `export NOTES_DIRECTORY="/tmp/foo"` in your `~/.bashrc` or equivalent
 file (`/tmp/foo` would be your notes path)
-2. Directly edit this script and replace `/d/notes` with `/tmp/foo` in the
-`NOTES_DIRECTORY` variable
+2. Directly edit this script and replace the `$HOME/notes` default with
+`/tmp/foo` in the `NOTES_DIRECTORY` variable
+
+Note: If this directory does not exist it will be created.
 
 Also, if you want this script to open your notes in your code editor you'll
 want to make sure you have your `EDITOR` defined in your `~/.profile`. This is
 a Unix standard. For example, mine looks like `export EDITOR="vim"`.
+
+Note: For people using the VS Code editor, you can set the editor as follows
+
+```shell
+readonly NOTES_EDITOR=${EDITOR:-"code --wait"}
+```
+
+### Timestamps
+
+By default all notes are timestamped. You can change this behaviour with the
+`NO_NOTES_TIMESTAMP` environment variable (if it is set then no timestamp is
+used). For example
+
+```shell
+NO_NOTES_TIMESTAMP=Y ./notes An insightful note with no time stamp
+```
 
 ## Usage Examples
 
@@ -124,8 +141,8 @@ flexibility!
 Also, you have the power of the command line at your finger tips to manipulate
 these files however you see fit. For example you can run `cat 2019-12-*.txt >
 2019-12.txt` to create a monthly file. Or better yet, if you prefer having
-monthly files by default instead of daily files you can just change `date
-+%Y-%m-%d` to be `date +%Y-%m` in the notes script for the `NOTES_FILE`.
+monthly files by default instead of daily files you can just change
+`date+%Y-%m-%d` to be `date +%Y-%m` in the notes script for the `NOTES_FILE`.
 
 ## About the Author
 
