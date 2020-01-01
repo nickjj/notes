@@ -1,28 +1,60 @@
 #!/bin/sh
 # Create a dated text file at a specific location and append text to it.
 #
+usage(){
+    cat <<EOF
 # Usage:
 #   $ notes something you want to jot down (appends that text to the file)
 #   $ xclip -o | notes                     (appends your clipboard to the file)
 #   $ notes                                (opens the file in your editor)
 #
+# Helper:
+#   $ notes -h|--help  This Usage
+#   $ notes -p|--path  Shows path of note storage
+#
 # Produces:
-#   YYYY-MM-DD.txt in your $NOTES_DIRECTORY (this is set below).
+#   YYYY-MM-DD.txt in your \$NOTES_DIRECTORY (this is set below).
+EOF
+}
+#
+# Note: Over WSL, it is suggested to keep NOTES_DIRECTORY to path like /d/notes
+#       As this will not require you to know $HOME location, in case of access-
+#       ing outside WSL.
 
 set -e
 
-readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-/d/notes}"
-readonly NOTES_EDITOR="${EDITOR}"
+readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-${HOME}/notes}"
+readonly NOTES_EDITOR="${EDITOR:-vi}"
 
 readonly NOTES_FILE="$(date +%Y-%m-%d).txt"
 readonly NOTES_PATH="${NOTES_DIRECTORY}/${NOTES_FILE}"
+
+if [ ${#} -eq 1 ]; then # if single argument is passed, and it is -h or -p ...
+    case "$1" in
+        -h|--help) usage && exit; ;;
+        -p|--path) echo "${NOTES_DIRECTORY}" && exit; ;;
+    esac
+fi
+
+mkdir -p "${NOTES_DIRECTORY}"
 
 if [ ${#} -eq 0 ]; then
     if [ -p "/dev/stdin" ]; then
         (cat; printf "\n\n") >> "${NOTES_PATH}"
     else
-        eval "${NOTES_EDITOR}" "${NOTES_PATH}"
+        if [ "${NOTES_EDITOR}" = "*vim" ]; then
+            eval "${NOTES_EDITOR}" + "${NOTES_PATH}"; # cursor at bottom
+        else
+            eval "${NOTES_EDITOR}" "${NOTES_PATH}"
+        fi
     fi
 else
     printf "%s\n\n" "${*}" >> "${NOTES_PATH}"
+fi
+
+# Combining daily notes to monthly consolidated file
+if [ -s "${NOTES_PATH}" ];then # Non empty not file
+    cd "${NOTES_DIRECTORY}"
+    # shellcheck disable=SC2046
+    cat $(date +%Y-%m)-*.txt > $(date +%Y-%m).txt
 fi
