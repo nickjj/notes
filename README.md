@@ -11,6 +11,11 @@ can save whatever text you want into a file. This could come from typing a
 sentence out, pasting something from your clipboard or saving the output of a
 program.
 
+## Demo Video
+
+[![Demo
+video](https://nickjanetakis.com/assets/blog/cards/organize-your-text-based-notes-from-the-command-line-with-this-script-53667299e8d44dbc6091a80a477dc540e201da4aa47ba974f630da4690500444.jpg)](https://nickjanetakis.com/blog/organize-your-text-based-notes-from-the-command-line-with-this-script)
+
 ## Design Goals and Philosophy
 
 I've been keeping track of my notes in plain text files since 2001. I always
@@ -38,7 +43,7 @@ within a few seconds.
 
 ### Your notes are organized by auto-dated files
 
-Let's say It's December 25th, 2019. If you were to run `notes hello world` it
+Let's say it's December 25th, 2019. If you were to run `notes hello world` it
 would create a `2019-12-25.txt` file in your `NOTES_DIRECTORY` (this is
 something you can configure). It would then append `hello world` to the end of
 the file.
