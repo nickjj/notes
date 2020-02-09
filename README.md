@@ -1,7 +1,7 @@
 # Notes [![Build Status](https://secure.travis-ci.org/nickjj/notes.png)](http://travis-ci.org/nickjj/notes)
 
-A ~15 line zero dependency shell script that makes it really simple to manage
-your text notes.
+A zero dependency shell script that makes it really simple to manage your text
+notes.
 
 Instead of trying to impose a whole bunch of rules and syntax requirements,
 this tool does its best to get out of your way.
@@ -91,19 +91,22 @@ any issues.
 
 ### Configuration
 
-The first thing you'll want to do is configure where you want your notes to be
-created. This directory needs to already exist.
+By default it will use `${HOME}/notes` as your notes directory and if that
+directory doesn't exist beforehand, this script will allow you to create it
+with a `y/n` prompt when you first run the program.
 
-You can do this in 1 of 2 ways:
+You can also customize your notes path in 1 of 2 ways:
 
-1. Put `export NOTES_DIRECTORY="/tmp/foo"` in your `~/.bashrc` or equivalent
+1. Put `export NOTES_DIRECTORY="/tmp/foo"` in your `~/.profile` or equivalent
 file (`/tmp/foo` would be your notes path)
-2. Directly edit this script and replace `/d/notes` with `/tmp/foo` in the
-`NOTES_DIRECTORY` variable
+2. Directly edit the `notes` script and replace `${HOME}/notes` with `/tmp/foo`
+in the `NOTES_DIRECTORY` variable
 
 Also, if you want this script to open your notes in your code editor you'll
-want to make sure you have your `EDITOR` defined in your `~/.profile`. This is
-a Unix standard. For example, mine looks like `export EDITOR="vim"`.
+want to make sure you have your `EDITOR` defined in your `~/.profile` too. This
+is a Unix standard. For example, mine looks like `export EDITOR="vim"`.
+
+*If you change your `~/.profile`, don't forget to log out / login.*
 
 ## Usage Examples
 

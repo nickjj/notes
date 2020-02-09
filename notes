@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Create a dated text file at a specific location and append text to it.
 #
 # Usage:
@@ -11,11 +11,22 @@
 
 set -e
 
-readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-/d/notes}"
+readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-"${HOME}/notes"}"
 readonly NOTES_EDITOR="${EDITOR}"
 
 readonly NOTES_FILE="$(date +%Y-%m).txt"
 readonly NOTES_PATH="${NOTES_DIRECTORY}/${NOTES_FILE}"
+
+if [ ! -d "${NOTES_DIRECTORY}" ]; then
+    while true; do
+        read -rp "${NOTES_DIRECTORY} does not exist, do you want to create it? (y/n) " yn
+        case "${yn}" in
+            [Yy]* ) mkdir -p "${NOTES_DIRECTORY}"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer y or n";;
+        esac
+    done
+fi
 
 if [ ${#} -eq 0 ]; then
     if [ -p "/dev/stdin" ]; then
