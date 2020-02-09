@@ -44,12 +44,14 @@ within a few seconds.
 ### Your notes are organized by auto-dated files
 
 Let's say it's December 25th, 2019. If you were to run `notes hello world` it
-would create a `2019-12-25.txt` file in your `NOTES_DIRECTORY` (this is
+would create a `2019-12.txt` file in your `NOTES_DIRECTORY` (this is
 something you can configure). It would then append `hello world` to the end of
 the file.
 
-If you run `notes something else that is important` on the same day it would
-continue to append to that file.
+If you run `notes something else` on the next day it will still append to the
+same file and continue appending to that file until the next months hits. For
+example, on January 1st 2020 any `notes` commands will append to a
+`2020-01.txt` file.
 
 There's other things you can do such as piping input to it, or running the
 script without any arguments to open the file in your configured `EDITOR` but
@@ -127,10 +129,8 @@ running one of the above commands. Since everything is text you have a lot of
 flexibility!
 
 Also, you have the power of the command line at your finger tips to manipulate
-these files however you see fit. For example you can run `cat 2019-12-*.txt >
-2019-12.txt` to create a monthly file. Or better yet, if you prefer having
-monthly files by default instead of daily files you can just change `date
-+%Y-%m-%d` to be `date +%Y-%m` in the notes script for the `NOTES_FILE`.
+these files however you see fit. For example you can run `cat 2019-*.txt >
+2019.txt` to create a yearly file.
 
 ## About the Author
 
