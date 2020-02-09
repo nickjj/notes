@@ -16,6 +16,13 @@ program.
 [![Demo
 video](https://nickjanetakis.com/assets/blog/cards/organize-your-text-based-notes-from-the-command-line-with-this-script-53667299e8d44dbc6091a80a477dc540e201da4aa47ba974f630da4690500444.jpg)](https://nickjanetakis.com/blog/organize-your-text-based-notes-from-the-command-line-with-this-script)
 
+#### Updates to the notes script since this video
+
+- `v0.2.0` scopes the notes files [per month instead of per
+  day](https://github.com/nickjj/notes/commit/4693109f27dc15da6626e3afbba53730810df026).
+  This differs from what's in the video at the 4:00 mark.
+- `v0.1.0` matches exactly what's in this video.
+
 ## Design Goals and Philosophy
 
 I've been keeping track of my notes in plain text files since 2001. I always
