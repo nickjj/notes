@@ -7,14 +7,15 @@
 #   $ notes                                (opens the file in your editor)
 #
 # Produces:
-#   YYYY-MM.txt in your $NOTES_DIRECTORY (this is set below).
+#   YYYY-MM.$NOTES_EXTENSION in your $NOTES_DIRECTORY (this is set below).
 
 set -e
 
 readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-"${HOME}/notes"}"
 readonly NOTES_EDITOR="${EDITOR}"
+readonly NOTES_EXTENSION="${NOTES_EXTENSION:-"txt"}"
 
-readonly NOTES_FILE="$(date +%Y-%m).txt"
+readonly NOTES_FILE="$(date +%Y-%m).${NOTES_EXTENSION}"
 readonly NOTES_PATH="${NOTES_DIRECTORY}/${NOTES_FILE}"
 
 if [ ! -d "${NOTES_DIRECTORY}" ]; then
