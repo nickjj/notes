@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add configuration for filename extension
+
 ## v0.2.0
 
 *Released: February 9th 2020*

@@ -58,7 +58,7 @@ the file.
 If you run `notes something else` on the next day it will still append to the
 same file and continue appending to that file until the next months hits. For
 example, on January 1st 2020 any `notes` commands will append to a
-`2020-01.txt` file.
+`2020-01.txt` file (or whatever filename extension you prefer).
 
 There's other things you can do such as piping input to it, or running the
 script without any arguments to open the file in your configured `EDITOR` but
@@ -102,10 +102,12 @@ By default it will use `${HOME}/notes` as your notes directory and if that
 directory doesn't exist beforehand, this script will allow you to create it
 with a `y/n` prompt when you first run the program.
 
-You can also customize your notes path in 1 of 2 ways:
+You can also customize your notes path in 1 of 3 ways:
 
 1. Put `export NOTES_DIRECTORY="/tmp/foo"` in your `~/.profile` or equivalent
 file (`/tmp/foo` would be your notes path)
+1. Put `export NOTES_EXTENSION="md"` in your `~/.profile` or equivalent
+file (`YYYY-MM.md` would be your note file)
 2. Directly edit the `notes` script and replace `${HOME}/notes` with `/tmp/foo`
 in the `NOTES_DIRECTORY` variable
 
