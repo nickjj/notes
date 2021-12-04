@@ -92,7 +92,7 @@ sudo curl \
 ```
 
 You can also choose to replace `master` with a specific [release
-tag](https://github.com/nickjj/notes/releases) if you want to grab a specific
+tag](https://github.com/nickjj/notes/tags) if you want to grab a specific
 version.
 
 There's no fancy `git clone` instructions because you may end up modifying at
