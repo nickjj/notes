@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 # Create a dated text file at a specific location and append text to it.
 #
 # Usage:
