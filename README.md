@@ -91,6 +91,10 @@ sudo curl \
   -o /usr/local/bin/notes && sudo chmod +x /usr/local/bin/notes
 ```
 
+You can also choose to replace `master` with a specific [release
+tag](https://github.com/nickjj/notes/releases) if you want to grab a specific
+version.
+
 There's no fancy `git clone` instructions because you may end up modifying at
 least 1 line of the script. Plus since the script is so simple, this repo is
 likely not going to change and if it does you will be able to `diff` it without
