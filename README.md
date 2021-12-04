@@ -1,4 +1,4 @@
-# Notes [![Build Status](https://travis-ci.org/nickjj/notes.svg?branch=master)](http://travis-ci.org/nickjj/notes)
+# Notes ![CI](https://github.com/nickjj/notes/workflows/CI/badge.svg?branch=master)
 
 A zero dependency shell script that makes it really simple to manage your text
 notes.
