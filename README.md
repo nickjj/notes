@@ -1,7 +1,7 @@
 # Notes ![CI](https://github.com/nickjj/notes/workflows/CI/badge.svg?branch=master)
 
-A zero dependency shell script that makes it really simple to manage your text
-notes.
+A zero dependency POSIX compliant shell script that makes it really simple to
+manage your text notes.
 
 Instead of trying to impose a whole bunch of rules and syntax requirements,
 this tool does its best to get out of your way.
