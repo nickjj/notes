@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.0
+
+*Released: December 4th 2021*
+
+- Switch from `bash` to `sh` to be POSIX compliant (functionality wise it works the same)
+
 ## v0.2.0
 
 *Released: February 9th 2020*
