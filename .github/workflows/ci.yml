@@ -22,4 +22,4 @@ jobs:
 
       - name: "Lint script"
         run: |
-        shellcheck ./notes
+          shellcheck ./notes
