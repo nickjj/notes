@@ -14,7 +14,7 @@ set -e
 readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-"${HOME}/Documents/Notes"}"
 readonly NOTES_EDITOR="${EDITOR}"
 
-readonly NOTES_FILE="$(date +%m_%Y).txt"
+readonly NOTES_FILE="$(date +%b_%Y).txt"
 readonly NOTES_PATH="${NOTES_DIRECTORY}/${NOTES_FILE}"
 
 if [ ! -d "${NOTES_DIRECTORY}" ]; then
