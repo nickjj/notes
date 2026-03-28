@@ -9,33 +9,40 @@
 # Produces:
 #   YYYY-MM.txt in your $NOTES_DIRECTORY (this is set below).
 
-set -e
+set -o errexit
 
 readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-${HOME}/notes}"
 readonly NOTES_EDITOR="${EDITOR}"
 
-readonly NOTES_FILE="$(date +%Y-%m).txt"
+NOTES_FILE=
+NOTES_FILE="$(date +%Y-%m).txt"
 readonly NOTES_PATH="${NOTES_DIRECTORY}/${NOTES_FILE}"
 
 if [ ! -d "${NOTES_DIRECTORY}" ]; then
-    while true; do
-        printf "%s does not exist, do you want to create it? (y/n) " "${NOTES_DIRECTORY}"
-        read -r yn
+  while true; do
+    printf "%s does not exist, do you want to create it? (y/n) " "${NOTES_DIRECTORY}"
+    read -r yn
 
-        case "${yn}" in
-            [Yy]* ) mkdir -p "${NOTES_DIRECTORY}"; break;;
-            [Nn]* ) exit;;
-            * ) printf "Please answer y or n\n\n";;
-        esac
-    done
+    case "${yn}" in
+    [Yy]*)
+      mkdir -p "${NOTES_DIRECTORY}"
+      break
+      ;;
+    [Nn]*) exit ;;
+    *) printf "Please answer y or n\n\n" ;;
+    esac
+  done
 fi
 
 if [ ${#} -eq 0 ]; then
-    if [ -p "/dev/stdin" ]; then
-        (cat; printf "\n\n") >> "${NOTES_PATH}"
-    else
-        eval "${NOTES_EDITOR}" "${NOTES_PATH}"
-    fi
+  if [ -p "/dev/stdin" ]; then
+    (
+      cat
+      printf "\n\n"
+    ) >>"${NOTES_PATH}"
+  else
+    eval "${NOTES_EDITOR}" "${NOTES_PATH}"
+  fi
 else
-    printf "%s\n\n" "${*}" >> "${NOTES_PATH}"
+  printf "%s\n\n" "${*}" >>"${NOTES_PATH}"
 fi
