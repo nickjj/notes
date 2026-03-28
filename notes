@@ -11,6 +11,13 @@
 
 set -o errexit
 
+case "${1}" in
+-v | --version | version)
+  echo "0.3.0"
+  exit
+  ;;
+esac
+
 readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-${HOME}/notes}"
 readonly NOTES_EDITOR="${EDITOR}"
 
