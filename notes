@@ -21,8 +21,8 @@ esac
 readonly NOTES_DIRECTORY="${NOTES_DIRECTORY:-${HOME}/notes}"
 readonly NOTES_EDITOR="${EDITOR}"
 
-NOTES_FILE=
 NOTES_FILE="$(date +%Y-%m).txt"
+readonly NOTES_FILE
 readonly NOTES_PATH="${NOTES_DIRECTORY}/${NOTES_FILE}"
 
 if [ ! -d "${NOTES_DIRECTORY}" ]; then
