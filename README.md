@@ -87,9 +87,13 @@ scripts then feel free to run things manually.
 
 ```sh
 sudo curl \
-  -L https://raw.githubusercontent.com/nickjj/notes/master/notes \
+  -L https://raw.githubusercontent.com/nickjj/notes/v0.3.1/notes \
   -o /usr/local/bin/notes && sudo chmod +x /usr/local/bin/notes
 ```
+
+That will download the latest release. If you want to download the bleeding
+edge version you can replace the *version number* with *master* in the above
+command.
 
 You can also choose to replace `master` with a specific [release
 tag](https://github.com/nickjj/notes/tags) if you want to grab a specific

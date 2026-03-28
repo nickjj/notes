@@ -13,7 +13,7 @@ set -o errexit
 
 case "${1}" in
 -v | --version | version)
-  echo "0.3.0"
+  echo "0.3.1"
   exit
   ;;
 esac
