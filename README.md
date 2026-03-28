@@ -108,9 +108,9 @@ with a `y/n` prompt when you first run the program.
 
 You can also customize your notes path in 1 of 2 ways:
 
-1. Put `export NOTES_DIRECTORY="/tmp/foo"` in your `~/.profile` or equivalent
-file (`/tmp/foo` would be your notes path)
-2. Directly edit the `notes` script and replace `${HOME}/notes` with `/tmp/foo`
+1. Put `export NOTES_DIRECTORY="/tmp/example"` in your `~/.profile` or equivalent
+file (`/tmp/example` would be your notes path)
+2. Directly edit the `notes` script and replace `${HOME}/notes` with `/tmp/example`
 in the `NOTES_DIRECTORY` variable
 
 Also, if you want this script to open your notes in your code editor you'll
