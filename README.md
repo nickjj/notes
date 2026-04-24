@@ -80,6 +80,9 @@ of your choosing which isn't dated. That's what I do to help plan my
 
 ## Installation
 
+*If you're using [my dotfiles](https://github.com/nickjj/dotfiles), it comes
+pre-installed by default!*
+
 Copy / paste the line below, or if you don't like this pattern of installing
 scripts then feel free to run things manually.
 
